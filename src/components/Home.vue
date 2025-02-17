@@ -125,6 +125,14 @@ export default {
 </script>
 
 <style scoped>
+main{
+  background-color: rgb(209, 207, 38);
+  color: white;
+}
+input{
+  width:40%;
+}
+
 h1 {
   text-align: center;
   color: rgb(101, 125, 105)
