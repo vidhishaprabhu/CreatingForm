@@ -2,24 +2,29 @@
 <main>
   <h1>Welcome to my Form</h1>
   <p v-if="age > 18"> You are suitable for vote</p>
-  <p v-else-if="age.length == 0"></p>
+  <p v-else-if="age.length == 0">Age should not be blank</p>
   <p v-else>You are not suitable for voting</p>
   <form>
     <div class="mb-3">
       <label for="exampleInputName" class="form-label">Name</label>
       <input type="text" class="form-control" id="exampleInputName" placeholder="Enter Name" v-model="name" value="java">
+      <span v-if="nameLength" style="color:red">Name should not be blank</span>
+       
     </div>
     <div class="mb-3">
       <label for="exampleInputAge" class="form-label">Age</label>
       <input type="number" class="form-control" id="exampleInputAge" placeholder="Enter your Age" v-model="age">
+      <span v-if="ageLength" style="color:red">Age should not be blank</span>
     </div>
     <div class="mb-3">
       <label for="exampleInputEmail" class="form-label">Email</label>
       <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter Email" v-model="email">
+      <span v-if="emailLength" style="color:red">Email should not be blank</span>
     </div>
     <div class="mb-3">
       <label for="exampleInputAddress" class="form-label">Address</label>
       <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter Address" v-model="address">
+      <span v-if="addressLength" style="color:red">Address should not be blank</span>
 
     </div>
     <label>Skills: </label>
@@ -96,6 +101,24 @@ export default {
   methods: {
     getData() {
       alert("Name is " + this.name +" and age is "+this.age+" and email is " + this.email + " and address is " + this.address+" and skills are "+this.technology+" and i am a "+this.type);
+    }
+  },
+  computed:{
+    nameLength(){
+      return this.name.length === 0
+
+    },
+    ageLength(){
+      return this.age.length === 0
+    },
+    emailLength(){
+      return this.email.length === 0
+    },
+    addressLength(){
+      return this.address.length === 0
+    },
+    skillsLength(){
+      return this.skills.length === 0
     }
   }
 }
